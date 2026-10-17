@@ -1,0 +1,3 @@
+/Users/toabhisheksaxena/Documents/Gemini/AIPreneur-AI-Workforce-Portal/server.rb:237:in `initialize': Operation not permitted - bind(2) for "0.0.0.0" port 8090 (Errno::EPERM)
+	from /Users/toabhisheksaxena/Documents/Gemini/AIPreneur-AI-Workforce-Portal/server.rb:237:in `new'
+	from /Users/toabhisheksaxena/Documents/Gemini/AIPreneur-AI-Workforce-Portal/server.rb:237:in `<main>'

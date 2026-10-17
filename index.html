@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIPreneur | Lifelike AI Workforce & Member Demo Portal (aipreneurglobal.com)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="pulse-dot"></span>
+        <strong>AIPreneur Official Workforce Portal:</strong> Register with your email &amp; contact details and log in to unlock all 10 live AI Employee video demos.
+      </div>
+      <div class="top-bar-right">
+        <span id="loggedInUserBadge" class="user-session-pill" style="display:none;"></span>
+        <button id="logoutTopBtn" class="btn-logout-mini" style="display:none;" onclick="handleCustomerLogout()">Log Out</button>
+        <a href="https://aipreneurglobal.com/" target="_blank" rel="noopener">🌐 aipreneurglobal.com</a>
+        <span class="divider">|</span>
+        <a href="#customer-portal" onclick="switchPortalAuthTab('register')">📝 Register</a>
+        <span class="divider">|</span>
+        <a href="#customer-portal" onclick="switchPortalAuthTab('login')">🔐 Member Login</a>
+        <span class="divider">|</span>
+        <a href="javascript:void(0)" onclick="toggleFloatingChatbot(true)">💬 Live Agent Chat</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="https://aipreneurglobal.com/" target="_blank" rel="noopener" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="36" height="36" rx="10" fill="url(#brandGrad)"/>
+            <path d="M18 8L27 26H22.2L20.3 21.8H15.7L13.8 26H9L18 8ZM18 14.2L16.5 18.2H19.5L18 14.2Z" fill="white"/>
+            <circle cx="27" cy="10" r="3" fill="#34D399"/>
+            <defs>
+              <linearGradient id="brandGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#4F46E5"/>
+                <stop offset="1" stop-color="#06B6D4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">AIPreneur</span>
+          <span class="brand-domain">aipreneurglobal.com</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#workforce-roster">10 AI Employees</a>
+        <a href="#live-demo">🎬 Live Agent Demos</a>
+        <a href="#customer-portal" onclick="switchPortalAuthTab('register')">📝 Register</a>
+        <a href="#customer-portal" onclick="switchPortalAuthTab('login')">🔐 Login</a>
+        <a href="#customer-portal" onclick="switchPortalAuthTab('inquire')">📩 Service Inquiry</a>
+        <a href="#roi-calculator">ROI Calculator</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#customer-portal" class="btn btn-accent btn-sm" onclick="switchPortalAuthTab('inquire')">
+          📩 Inquire Now
+        </a>
+        <a href="#customer-portal" id="navAuthActionBtn" class="btn btn-primary btn-sm" onclick="switchPortalAuthTab('register')">
+          🔐 Register / Login →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow-badge">
+          <span class="spark">✦</span> 10 UNIQUE HUMAN VOICES &amp; MEMBER DEMO PORTAL &bull; AIPRENEURGLOBAL.COM
+        </div>
+        <h1>
+          Lifelike <span class="gradient-text">AI Employees</span> With Unique Personalities &amp; Voices
+        </h1>
+        <p class="hero-statement">
+          <strong>This website and portal creates lifelike AI employee avatars that you can utilize as your own employees while forming and scaling your business.</strong> Every agent—<strong>Elena</strong> (Social Media Manager), <strong>Sophia</strong> (Receptionist), <strong>Marcus</strong> (Sales Assistant), <strong>Liam</strong> (Blogger), <strong>Maya</strong> (Copywriter), <strong>Claude</strong> (Content &amp; Video Editor), <strong>Arjun Mehta</strong> (Data Analyst), <strong>Jordan</strong> (Inside Sales &amp; Support), <strong>Dr. Clara</strong> (Research Specialist), and <strong>Alex</strong> (Custom Role)—speaks with a <strong>100% unique, non-overlapping voice</strong>. Register and log in to unlock all live demo videos.
+        </p>
+
+        <div class="hero-cta-group">
+          <button class="btn btn-magenta btn-lg" onclick="openAgentVideoDemo('social_manager')">
+            <span>🎬 Watch Elena's Live Social Demo</span>
+          </button>
+          <a href="#customer-portal" class="btn btn-primary btn-lg" onclick="switchPortalAuthTab('register')">
+            <span>🔐 Register &amp; Log In to Unlock Demos</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-strip">
+          <div class="trust-stat">
+            <strong>10 Voices</strong>
+            <span>Zero Voice Overlap</span>
+          </div>
+          <div class="trust-stat">
+            <strong>Member Gate</strong>
+            <span>Register &amp; Login for Demos</span>
+          </div>
+          <div class="trust-stat">
+            <strong>4 Networks</strong>
+            <span>LI, IG, FB &amp; X Auto-Publish</span>
+          </div>
+          <div class="trust-stat">
+            <strong>24/7 Chat</strong>
+            <span>Interactive Multi-Agent Support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE HERO VISUAL SHOWCASE CARD -->
+      <div class="hero-showcase-card">
+        <div class="showcase-window-bar">
+          <div class="window-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="window-url">https://aipreneurglobal.com/human-ai-workforce</div>
+          <span class="status-pill" id="heroAuthStatusPill">🔒 Register / Log In for Demos</span>
+        </div>
+
+        <div class="showcase-banner-statement">
+          <span class="statement-icon">🎙️</span>
+          <p>
+            <strong>Click Any Agent Below to Watch Their Live Demo:</strong> Registered and logged-in members can watch every agent's screen-share demonstration and hear their unique human voice.
+          </p>
+        </div>
+
+        <div class="hero-avatar-grid" id="heroAvatarMiniGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+        <div class="showcase-footer-bar">
+          <div class="active-telemetry">
+            <span class="pulse-green"></span>
+            <span id="heroTelemetryText">Arjun Mehta (Indian Male Voice) just published your Monday AIR Revenue Attribution Report • 2s ago</span>
+          </div>
+          <button class="btn btn-sm btn-accent" onclick="toggleFloatingChatbot(true)">
+            💬 Chat with an Agent
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: CUSTOMER REGISTRATION, LOGIN & SERVICE INQUIRY PORTAL -->
+  <section id="customer-portal" class="section-block auth-portal-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">MEMBER REGISTRATION, LOGIN &amp; SERVICE INQUIRY</span>
+        <h2>Register With Your Email &amp; Log In to Unlock All Live AI Employee Demos</h2>
+        <p>
+          New visitors must register with their email address and contact information and log in to view our hosted AI Employee demo videos and interactive workspaces.
+        </p>
+      </div>
+
+      <!-- Auth & Inquiry Tabs -->
+      <div class="auth-portal-tabs">
+        <button class="auth-tab-btn active" id="authTabBtnRegister" onclick="switchPortalAuthTab('register')">
+          📝 1. Customer Registration (Sign Up)
+        </button>
+        <button class="auth-tab-btn" id="authTabBtnLogin" onclick="switchPortalAuthTab('login')">
+          🔐 2. Member Login (Unlock Demos)
+        </button>
+        <button class="auth-tab-btn" id="authTabBtnInquire" onclick="switchPortalAuthTab('inquire')">
+          📩 3. Service Inquiry ("Hire Our AI Workforce")
+        </button>
+      </div>
+
+      <div class="auth-portal-body">
+        <!-- TAB 1: CUSTOMER REGISTRATION -->
+        <div class="auth-panel" id="authPanelRegister">
+          <div class="auth-split-grid">
+            <div class="auth-form-card">
+              <h3>Create Your AIPreneur Member Account</h3>
+              <p class="auth-subtext">Enter your email address and contact information below to register. Once registered, log in to unlock all 10 live AI Employee demo videos.</p>
+
+              <form id="customerRegisterForm" onsubmit="handleCustomerRegistration(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="regFullName">Your Full Name *</label>
+                    <input type="text" id="regFullName" required placeholder="e.g., Rohan Kapoor" />
+                  </div>
+                  <div class="form-group">
+                    <label for="regEmail">Your Email Address *</label>
+                    <input type="email" id="regEmail" required placeholder="e.g., rohan@yourcompany.com" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="regPhone">Phone / Contact Number *</label>
+                    <input type="tel" id="regPhone" required placeholder="e.g., +91 98100 12345" />
+                  </div>
+                  <div class="form-group">
+                    <label for="regCompany">Company / Brand Name *</label>
+                    <input type="text" id="regCompany" required placeholder="e.g., Horizon Digital Ventures" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="regWebsite">Business Website URL</label>
+                    <input type="text" id="regWebsite" value="https://aipreneurglobal.com" placeholder="https://yourbusiness.com" />
+                  </div>
+                  <div class="form-group">
+                    <label for="regPassword">Create Password *</label>
+                    <input type="password" id="regPassword" required placeholder="Create a password" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Which AI Employees Are You Interested In?</label>
+                  <div class="capability-pills" id="regSelectedAgentsPills">
+                    <label class="cap-pill"><input type="checkbox" checked value="Elena Rostova (AI Social Media Manager)" /> 👩‍💼 Elena (Social Media)</label>
+                    <label class="cap-pill"><input type="checkbox" checked value="Sophia Sterling (AI Receptionist)" /> 📞 Sophia (Receptionist)</label>
+                    <label class="cap-pill"><input type="checkbox" checked value="Marcus Vance (AI Sales Assistant)" /> 💼 Marcus (Sales Assistant)</label>
+                    <label class="cap-pill"><input type="checkbox" value="Liam O'Connor (AI Blogger)" /> ✍️ Liam (AI Blogger)</label>
+                    <label class="cap-pill"><input type="checkbox" value="Maya Lin (AI Copywriter)" /> 📝 Maya (Copywriter)</label>
+                    <label class="cap-pill"><input type="checkbox" value="Claude Bennett (Content & Video Editor)" /> 🎬 Claude (Video Editor)</label>
+                    <label class="cap-pill"><input type="checkbox" checked value="Arjun Mehta (AI Data Analyst)" /> 📊 Arjun (Data Analyst)</label>
+                    <label class="cap-pill"><input type="checkbox" value="Jordan Brooks (Inside Sales & Support)" /> 💬 Jordan (Inside Sales)</label>
+                    <label class="cap-pill"><input type="checkbox" value="Dr. Clara Chen (AI Research Specialist)" /> 🔍 Dr. Clara (Research)</label>
+                    <label class="cap-pill"><input type="checkbox" value="Alex Rivera (Custom Role Agent)" /> 🛠️ Alex (Custom Role)</label>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
+                  🚀 Register Account
+                </button>
+              </form>
+              <div id="registerStatusBanner" class="auth-status-banner" style="display:none;"></div>
+            </div>
+
+            <div class="auth-info-card">
+              <h4>Member Benefits &amp; Exclusive Demo Access</h4>
+              <ul class="auth-benefits-list">
+                <li><strong>1. Unlock All 10 Live Agent Video Demos:</strong> Watch Elena, Sophia, Marcus, Liam, Maya, Claude, Arjun, Jordan, Dr. Clara, and Alex perform real tasks on screen.</li>
+                <li><strong>2. Audition All 10 Unique Human Voices:</strong> Hear each agent's dedicated, non-overlapping voice matched to their persona and accent.</li>
+                <li><strong>3. Interactive Visual Post &amp; Calendar Studio:</strong> Test generating 7-day social calendars, visual templates for LinkedIn, Instagram, Facebook &amp; X, and DM routing.</li>
+                <li><strong>4. Dedicated Onboarding Support:</strong> Once you register, our team will get back to you to help tailor your AI workforce.</li>
+              </ul>
+              <div class="owner-routing-box">
+                <span>🔒 Already Registered?</span>
+                <strong>Log In to Watch Demos</strong>
+                <small style="display:block;margin-bottom:10px;">Sign in with your registered email and password to unlock the demo studio immediately.</small>
+                <button type="button" class="btn btn-sm btn-secondary" onclick="switchPortalAuthTab('login')">Go to Member Login →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: CUSTOMER LOGIN -->
+        <div class="auth-panel" id="authPanelLogin" style="display:none;">
+          <div class="auth-split-grid">
+            <div class="auth-form-card">
+              <h3>Member Login — Unlock Live AI Employee Demos</h3>
+              <p class="auth-subtext">Log in using the email address and password you registered with to unlock all hosted demo videos and interactive studios.</p>
+
+              <form id="customerLoginForm" onsubmit="handleCustomerLogin(event)">
+                <div class="form-group">
+                  <label for="loginEmail">Registered Email Address *</label>
+                  <input type="email" id="loginEmail" required placeholder="Enter your registered email" />
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword">Password *</label>
+                  <input type="password" id="loginPassword" required placeholder="Enter your password" />
+                </div>
+
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+                  <button type="submit" class="btn btn-primary btn-lg" style="flex:1;justify-content:center;">
+                    🔐 Log In &amp; Unlock Demo Videos
+                  </button>
+                </div>
+              </form>
+              <div id="loginStatusBanner" class="auth-status-banner" style="display:none;"></div>
+            </div>
+
+            <div class="auth-info-card" id="loggedInCustomerDashboardCard">
+              <h4>Member Session Status</h4>
+              <p style="font-size:0.86rem;color:#94A3B8;margin-bottom:12px;">Your demo access status is shown below.</p>
+              <div id="authenticatedProfileBox" class="ws-output-card">
+                <h5>🔒 Status: Not Logged In (Demos Locked)</h5>
+                <p style="font-size:0.82rem;color:#CBD5E1;">Please register in Tab 1 with your email and contact details, then log in here to unlock all 10 AI Employee demo videos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: SERVICE INQUIRY FORM -->
+        <div class="auth-panel" id="authPanelInquire" style="display:none;">
+          <div class="auth-split-grid">
+            <div class="auth-form-card">
+              <h3>Inquire for AIPreneur AI Workforce Services</h3>
+              <p class="auth-subtext">Want to deploy custom AI employees or a white-label portal for your business? Submit your details below and we will get back to you.</p>
+
+              <form id="serviceInquiryForm" onsubmit="handleServiceInquiry(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="inqName">Your Name *</label>
+                    <input type="text" id="inqName" required placeholder="e.g., Ananya Verma" />
+                  </div>
+                  <div class="form-group">
+                    <label for="inqEmail">Your Email Address *</label>
+                    <input type="email" id="inqEmail" required placeholder="e.g., ananya@company.com" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="inqPhone">Phone / Contact Number *</label>
+                    <input type="tel" id="inqPhone" required placeholder="e.g., +91 98201 55432" />
+                  </div>
+                  <div class="form-group">
+                    <label for="inqCompany">Company / Organization *</label>
+                    <input type="text" id="inqCompany" required placeholder="e.g., Verma Legal & Advisory" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="inqAgents">Which AI Employees / Services Do You Need?</label>
+                    <select id="inqAgents">
+                      <option value="Full 10-Agent AI Workforce Bundle (All Departments)">Full 10-Agent AI Workforce Bundle (All Departments)</option>
+                      <option value="Elena (Social Media Manager) + Claude (Content/Video Editor)">Elena (Social Media) + Claude (Content/Video Editor)</option>
+                      <option value="Sophia (24/7 AI Receptionist) + Jordan (Inside Sales & Support)">Sophia (24/7 Receptionist) + Jordan (Inside Sales & Support)</option>
+                      <option value="Liam (SEO Blogger) + Maya (Conversion Copywriter)">Liam (SEO Blogger) + Maya (Conversion Copywriter)</option>
+                      <option value="Marcus (Sales Assistant) + Arjun (Data Analyst) + Dr. Clara (Research)">Marcus (Sales) + Arjun (Data Analyst) + Dr. Clara (Research)</option>
+                      <option value="White-Label Agency Partner License (aipreneurglobal.com)">White-Label Agency Partner License (aipreneurglobal.com)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="inqBudget">Deployment Timeline &amp; Plan</label>
+                    <select id="inqBudget">
+                      <option value="Immediate Launch (Within 7 Days)">Immediate Launch (Within 7 Days)</option>
+                      <option value="This Month (2–4 Weeks)">This Month (2–4 Weeks)</option>
+                      <option value="Enterprise / Multi-Location Rollout">Enterprise / Multi-Location Rollout</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inqMessage">Tell Us About Your Business &amp; Automation Goals *</label>
+                  <textarea id="inqMessage" rows="3" required style="width:100%;background:rgba(0,0,0,0.4);color:#FFF;border:1px solid var(--border);border-radius:10px;padding:10px;font-family:inherit;">We want to deploy Elena to automate our weekly LinkedIn, Instagram, Facebook & X content calendar and Sophia to answer inbound client calls 24/7.</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-magenta btn-lg" style="width:100%;justify-content:center;">
+                  📩 Submit Service Inquiry
+                </button>
+              </form>
+              <div id="inquiryStatusBanner" class="auth-status-banner" style="display:none;"></div>
+            </div>
+
+            <div class="auth-info-card">
+              <h4>How Our Team Assists You</h4>
+              <p style="font-size:0.86rem;color:#CBD5E1;margin-bottom:14px;">
+                Once you submit your inquiry:
+              </p>
+              <ul class="auth-benefits-list">
+                <li><strong>1. Custom Workflow Review:</strong> We review your business website and department goals.</li>
+                <li><strong>2. Tailored AI Employee Setup:</strong> We pre-train your selected AI employees on your brand voice and SOPs.</li>
+                <li><strong>3. Prompt Follow-Up:</strong> Our team will get back to you shortly to finalize your deployment.</li>
+              </ul>
+              <button class="btn btn-accent" style="width:100%;justify-content:center;margin-top:12px;" onclick="toggleFloatingChatbot(true)">
+                💬 Or Chat Live With an AI Agent Right Now →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10-AGENT NON-OVERLAPPING VOICE AUDITION BAR -->
+  <section id="voice-audition-bar" class="voice-audition-section">
+    <div class="container">
+      <div class="voice-audition-header">
+        <div>
+          <span class="section-tag" style="margin-bottom:4px;">10 DISTINCT NON-OVERLAPPING HUMAN VOICE PROFILES</span>
+          <h3>🎧 One-Click Voice Audition: Hear Every Agent's Unique Personality &amp; Accent</h3>
+        </div>
+        <button class="btn btn-sm btn-ghost" onclick="stopSpeech()">⏹ Stop Audio</button>
+      </div>
+      <div class="voice-audition-grid" id="voiceAuditionGrid">
+        <!-- Populated dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: MEET YOUR 10 LIFELIKE AI EMPLOYEES -->
+  <section id="workforce-roster" class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">10 LIFELIKE HUMAN AI EMPLOYEES &bull; UNIQUE NON-OVERLAPPING VOICES</span>
+        <h2>Meet Your AI Team: Click "Watch &amp; Hear Demo" on Any Agent</h2>
+        <p>
+          Every digital employee on <a href="https://aipreneurglobal.com/" target="_blank" rel="noopener">AIPreneur (aipreneurglobal.com)</a> has a dedicated, non-overlapping voice matched to their persona—from <strong>Elena</strong> and <strong>Sophia</strong> (two distinct female voices) to <strong>Arjun Mehta</strong> (Indian male voice), <strong>Jordan Brooks</strong> (British male accent), <strong>Claude Bennett</strong> (creative male voice), and <strong>Alex Rivera</strong> (young male voice).
+        </p>
+
+        <div class="filter-tabs" id="roleFilterTabs">
+          <button class="filter-btn active" data-filter="all">All 10 AI Employees</button>
+          <button class="filter-btn" data-filter="content">Social, Blogger, Copywriter &amp; Editor (4)</button>
+          <button class="filter-btn" data-filter="frontline">Receptionist &amp; First-Person Support (2)</button>
+          <button class="filter-btn" data-filter="sales">Sales Assistant &amp; Pipeline (1)</button>
+          <button class="filter-btn" data-filter="intelligence">Data Analyst &amp; Research Specialist (2)</button>
+          <button class="filter-btn" data-filter="custom">Custom Role ("Anything")</button>
+        </div>
+      </div>
+
+      <div class="employee-roster-grid" id="employeeRosterGrid">
+        <!-- Populated dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: REALISTIC HUMAN AGENT PRESENTER & LIVE WORKSPACE SCREEN-SHARE STUDIO (GATED FOR UNREGISTERED VISITORS) -->
+  <section id="live-demo" class="section-block demo-platform-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">REALISTIC AGENT PRESENTER &amp; LIVE WORKSPACE DEMO</span>
+        <h2>Watch &amp; Hear Your AI Employee Perform the Work Live</h2>
+        <p>
+          Select any of the 10 AI employees on the left to watch them actively build 7-day content calendars, design <strong>LinkedIn, Instagram, Facebook &amp; X post templates with real photos</strong>, edit videos, write SEO blogs, book calls, and explain every step in their <strong>unique human voice</strong>.
+        </p>
+      </div>
+
+      <!-- GATED CONTAINER WRAPPER -->
+      <div class="demo-gated-wrapper" id="demoGatedWrapper">
+        <!-- LOCK OVERLAY SHOWN WHEN USER IS NOT REGISTERED & LOGGED IN -->
+        <div class="demo-auth-gate-overlay" id="demoAuthGateOverlay">
+          <div class="gate-modal-card">
+            <div class="gate-lock-icon">🔒</div>
+            <h3>Register &amp; Log In to Watch Live Agent Demo Videos</h3>
+            <p>
+              Our live AI Employee video demonstrations, interactive visual post templates, and 10 unique voice walkthroughs are available exclusively to registered members. Please register with your email address and contact information, then log in to watch.
+            </p>
+            <div class="gate-cta-row">
+              <a href="#customer-portal" class="btn btn-primary btn-lg" onclick="switchPortalAuthTab('register')">
+                📝 Register Account Now
+              </a>
+              <a href="#customer-portal" class="btn btn-secondary btn-lg" onclick="switchPortalAuthTab('login')">
+                🔐 Already Registered? Log In
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTUAL DEMO SIMULATOR LAYOUT (BLURRED/LOCKED UNTIL LOGGED IN) -->
+        <div class="demo-simulator-layout demo-locked-blur" id="demoSimulatorContent">
+          <div class="demo-sidebar">
+            <div class="sidebar-title-row">
+              <h4>Choose Your AI Employee</h4>
+              <span class="badge-mini">10 Unique Voices</span>
+            </div>
+            <div class="demo-role-list" id="demoRoleSelectorList">
+              <!-- Populated by app.js -->
+            </div>
+
+            <div class="sidebar-quick-tip">
+              <strong>🎙️ Unique Voice Guarantee:</strong> Every agent above is locked to a dedicated voice slot so Elena, Sophia, Liam, Maya, Dr. Clara, Marcus, Claude, Arjun, Jordan &amp; Alex never overlap!
+            </div>
+          </div>
+
+          <div class="demo-stage-card">
+            <div class="demo-stage-header">
+              <div class="demo-agent-info" id="demoActiveAgentHeader">
+                <!-- Populated by app.js -->
+              </div>
+
+              <div class="demo-mode-tabs">
+                <button class="mode-tab-btn active" id="tabBtnVideo" onclick="switchDemoMode('video')">
+                  🎬 Watch Realistic Agent Video Demo
+                </button>
+                <button class="mode-tab-btn" id="tabBtnWorkspace" onclick="switchDemoMode('workspace')">
+                  ✍️ Interactive Visual Studio ("Write &amp; Create")
+                </button>
+                <button class="mode-tab-btn" id="tabBtnChat" onclick="switchDemoMode('chat')">
+                  💬 Conversations AI Inbox
+                </button>
+              </div>
+            </div>
+
+            <!-- MODE PANEL 1: REALISTIC HUMAN PRESENTER + LIVE WORKSPACE SCREEN-SHARE PLAYER -->
+            <div class="demo-mode-panel" id="panelVideoClip">
+              <div class="realistic-video-stage">
+                <div class="presenter-column" id="videoPresenterColumn">
+                  <!-- Populated dynamically by app.js -->
+                </div>
+
+                <div class="screenshare-column">
+                  <div class="screenshare-topbar">
+                    <div class="window-dots"><span></span><span></span><span></span></div>
+                    <div class="screenshare-title" id="screenshareWindowTitle">Elena Rostova's Live Workspace • aipreneurglobal.com</div>
+                    <span class="live-rec-badge">● LIVE SCREEN SHARE</span>
+                  </div>
+
+                  <div class="screenshare-body" id="screenshareVisualBody">
+                    <!-- Populated dynamically per agent & scene -->
+                  </div>
+
+                  <div class="screenshare-subtitle-bar">
+                    <div class="subtitle-voice-row">
+                      <span class="voice-wave-icon">🎙️</span>
+                      <p id="liveSpokenSubtitleText">"Hi! Watch me build your 7-day multi-network content calendar and design visual posts for LinkedIn, Instagram, Facebook, and X..."</p>
+                    </div>
+                    <div class="scene-progress-track">
+                      <div class="scene-progress-fill" id="sceneProgressFillBar" style="width: 35%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="video-controls-bar realistic-controls-bar">
+                <div class="video-left-controls">
+                  <button class="btn btn-sm btn-primary" id="videoPlayPauseBtn" onclick="toggleAgentVideoPlayback()">
+                    ⏸ Pause Live Demo
+                  </button>
+                  <button class="btn btn-sm btn-secondary" onclick="restartAgentVideoClip(true)">
+                    🔄 Replay with Agent Voice
+                  </button>
+                  <button class="btn btn-sm btn-accent" onclick="speakCurrentSceneVoice()">
+                    🔊 Speak Current Scene Aloud
+                  </button>
+                  <button class="btn btn-sm btn-outline" id="recordVideoBtn" onclick="recordAndDownloadAgentClip()">
+                    ⬇️ Export Demo Clip (.webm)
+                  </button>
+                </div>
+
+                <div class="video-scene-pills" id="videoScenePills">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+
+              <canvas id="agentVideoCanvas" width="920" height="480" style="display:none;"></canvas>
+            </div>
+
+            <!-- MODE PANEL 2: INTERACTIVE FUNCTIONAL WORKSPACE ("WRITE & CREATE") -->
+            <div class="demo-mode-panel" id="panelInteractiveWorkspace" style="display:none;">
+              <div id="interactiveWorkspaceContainer"></div>
+            </div>
+
+            <!-- MODE PANEL 3: CONVERSATIONS AI & LIVE TASK STREAM -->
+            <div class="demo-mode-panel" id="panelChatStream" style="display:none;">
+              <div class="chat-panel-toolbar">
+                <span>Unified Conversations AI Inbox (Voice, SMS, Web Chat &amp; Routed Social DMs)</span>
+                <div>
+                  <button class="btn btn-sm btn-secondary" onclick="playFullDemoScriptVoice()">🔊 Speak Conversation in Agent Voice</button>
+                  <button class="btn btn-sm btn-ghost" onclick="stopSpeech()">⏹ Mute</button>
+                </div>
+              </div>
+
+              <div class="demo-conversation-stream" id="demoConversationStream">
+                <!-- Populated by app.js -->
+              </div>
+
+              <div class="chat-custom-input-bar">
+                <input type="text" id="customDemoPrompt" placeholder="Type a live prompt or task for this AI Employee..." />
+                <button class="btn btn-primary" onclick="sendCustomDemoMessage()">Send &amp; Hear Reply</button>
+              </div>
+            </div>
+
+            <div class="demo-automation-bar" id="demoAutomationBar">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: CREATE YOUR AI EMPLOYEE & AVATAR CHARACTER STUDIO -->
+  <section id="avatar-creator" class="section-block studio-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">HUMAN-LIKE CHARACTER &amp; UNIQUE VOICE STUDIO</span>
+        <h2>Create &amp; Customize Your Own Lifelike AI Employee</h2>
+        <p>
+          Configure your AI employee's name, role, lifelike portrait style, unique non-overlapping voice, and business knowledge base.
+        </p>
+      </div>
+
+      <div class="creator-workspace">
+        <div class="creator-controls-card">
+          <h3>1. Configure Role, Persona &amp; Unique Voice</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="empNameInput">Employee Name</label>
+              <input type="text" id="empNameInput" value="Elena Rostova" />
+            </div>
+            <div class="form-group">
+              <label for="empRoleSelect">Select Skill Set / Department Role</label>
+              <select id="empRoleSelect">
+                <option value="social_manager" selected>Elena Rostova — AI Social Media Manager (Female Voice 1)</option>
+                <option value="receptionist">Sophia Sterling — AI Receptionist (Female Voice 2 • Distinct)</option>
+                <option value="sales_assistant">Marcus Vance — AI Sales Assistant (Executive Male Voice)</option>
+                <option value="blogger">Liam O'Connor — AI Blogger (Irish Female Voice 3)</option>
+                <option value="writer">Maya Lin — AI Copywriter (Articulate Female Voice 4)</option>
+                <option value="content_editor">Claude Bennett — Content Creator &amp; Editor (Creative Male Voice)</option>
+                <option value="data_analyst">Arjun Mehta — AI Data Analyst (Indian Male Voice • en-IN)</option>
+                <option value="inside_sales_support">Jordan Brooks — Inside Sales &amp; Support (British Accent Male)</option>
+                <option value="research_specialist">Dr. Clara Chen — AI Research Specialist (Academic Female Voice 5)</option>
+                <option value="custom_role">Alex Rivera — Custom Role Studio (Young Male Voice)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" id="customRoleGroup" style="display:none;">
+            <label for="customRoleInput">Specify Your Custom Employee Title &amp; Mission</label>
+            <input type="text" id="customRoleInput" placeholder="e.g., AI Reputation Specialist, AI Legal Onboarding Coordinator..." />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="avatarLookSelect">Lifelike Presenter Portrait</label>
+              <select id="avatarLookSelect">
+                <option value="creative" selected>Elena — Creative Studio Director (Female)</option>
+                <option value="concierge">Sophia — Warm Front-Desk Concierge (Female)</option>
+                <option value="executive">Marcus — Executive Sales Strategist (Male)</option>
+                <option value="blogger_look">Liam — Editorial &amp; SEO Author (Female)</option>
+                <option value="copywriter_look">Maya — Conversion Copy Director (Female)</option>
+                <option value="editor_look">Claude — Multimedia Creator &amp; Video Editor (Male)</option>
+                <option value="analyst">Arjun Mehta — Lead Data Scientist (Indian Male)</option>
+                <option value="support">Jordan — Inside Sales &amp; Support (British Male)</option>
+                <option value="researcher_look">Dr. Clara — Market Research Lead (Female)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="avatarThemeColor">Studio Brand Accent</label>
+              <select id="avatarThemeColor">
+                <option value="#EC4899" selected>Creative Rose &amp; Magenta (#EC4899)</option>
+                <option value="#4F46E5">AIPreneur Royal Indigo (#4F46E5)</option>
+                <option value="#06B6D4">Electric Cyber Cyan (#06B6D4)</option>
+                <option value="#10B981">Growth Emerald (#10B981)</option>
+                <option value="#F59E0B">Executive Amber (#F59E0B)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="empToneSelect">Communication &amp; Voice Style</label>
+              <select id="empToneSelect">
+                <option value="Brand Voice & Founder Personal Voice (Multi-Platform)">Brand Voice &amp; Individual Founder Voice</option>
+                <option value="Warm, empathetic, and welcoming (HEARD Framework)">Warm, Empathetic &amp; Welcoming (HEARD)</option>
+                <option value="Consultative, persuasive, and high-converting">Consultative &amp; High-Converting Sales</option>
+                <option value="Plain-English storytelling, zero robotic jargon">Plain-English Storyteller (Helpful Content)</option>
+                <option value="Analytical, data-backed, and executive-ready (AIR)">Analytical &amp; Data-Backed (AIR Framework)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="empWebsiteInput">1-Click Business Web Scrape (Auto-Train)</label>
+              <input type="text" id="empWebsiteInput" value="https://aipreneurglobal.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Core Capabilities &amp; Channels Assigned</label>
+            <div class="capability-pills" id="capabilityPillsContainer">
+              <label class="cap-pill"><input type="checkbox" checked value="7-Day Multi-Network Content Calendars" /> 🗓️ 7-Day Calendars</label>
+              <label class="cap-pill"><input type="checkbox" checked value="LinkedIn, IG, FB & X Visual Photo Templates" /> 🖼️ LI, IG, FB &amp; X Visual Posts</label>
+              <label class="cap-pill"><input type="checkbox" checked value="Hooks, Captions, Video Edits & Hashtags" /> ✍️ Hooks, Copy &amp; Edits</label>
+              <label class="cap-pill"><input type="checkbox" checked value="Comment Monitor & DM → Conversations AI" /> 💬 DM → Conversations AI</label>
+              <label class="cap-pill"><input type="checkbox" value="24/7 Voice Calls & Calendar Booking" /> 📞 24/7 Voice &amp; Booking</label>
+              <label class="cap-pill"><input type="checkbox" value="SEO Blog & WordPress Auto-Publishing" /> 🌐 WordPress SEO Blogs</label>
+              <label class="cap-pill"><input type="checkbox" value="AIR Data Analytics & CRM Sync" /> 📈 CRM &amp; Data Analytics</label>
+              <label class="cap-pill"><input type="checkbox" value="Deep Market & AI Search Research" /> 🔍 AI Search Research</label>
+            </div>
+          </div>
+
+          <div class="creator-actions">
+            <button type="button" class="btn btn-primary" onclick="deployCustomEmployee()">
+              ✨ Create &amp; Launch Realistic Demo
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="speakPreviewAvatar()">
+              🔊 Hear Selected Agent's Unique Voice
+            </button>
+            <button type="button" class="btn btn-outline" onclick="downloadAvatarBadgePNG()">
+              ⬇️ Download Employee ID Card (.png)
+            </button>
+          </div>
+        </div>
+
+        <div class="creator-preview-card">
+          <div class="preview-badge-header">
+            <span class="live-chip">● LIFELIKE AGENT CARD PREVIEW</span>
+            <span class="brand-watermark">AIPreneur • aipreneurglobal.com</span>
+          </div>
+
+          <div class="canvas-stage-wrapper">
+            <canvas id="avatarCharacterCanvas" width="680" height="440"></canvas>
+          </div>
+
+          <div class="preview-script-box">
+            <div class="script-label">Live First-Person Greeting &amp; Mission Statement:</div>
+            <blockquote id="avatarLiveGreeting">
+              "Hi! I'm Elena Rostova, your AI Social Media Manager created on AIPreneur (aipreneurglobal.com). You can utilize me as your own full-time employee while forming your business!"
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: AI EMPLOYEE ROI & MISSED-CALL CALCULATOR -->
+  <section id="roi-calculator" class="section-block alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">AI WORKFORCE ROI CALCULATOR</span>
+        <h2>What Are Missed Calls &amp; Manual Content Creation Costing You?</h2>
+        <p>
+          Model your captured leads, reclaimed payroll hours, and annual revenue impact when you deploy lifelike AI employees from <a href="https://aipreneurglobal.com/" target="_blank" rel="noopener">aipreneurglobal.com</a>.
+        </p>
+      </div>
+
+      <div class="roi-grid">
+        <div class="roi-controls-card">
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <label for="missedCallsInput">Missed Calls / Unanswered Social DMs per Week</label>
+              <strong id="missedCallsVal">18 inquiries/wk</strong>
+            </div>
+            <input type="range" id="missedCallsInput" min="2" max="100" value="18" oninput="updateROICalculator()" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <label for="avgDealValueInput">Average Customer Lifetime / Deal Value ($)</label>
+              <strong id="avgDealValueVal">$850</strong>
+            </div>
+            <input type="range" id="avgDealValueInput" min="100" max="5000" step="50" value="850" oninput="updateROICalculator()" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <label for="closeRateInput">AI Lead-to-Appointment Conversion Rate (%)</label>
+              <strong id="closeRateVal">28%</strong>
+            </div>
+            <input type="range" id="closeRateInput" min="5" max="60" value="28" oninput="updateROICalculator()" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <label for="aiTeamSizeInput">Number of AI Employees Deployed</label>
+              <strong id="aiTeamSizeVal">6 AI Employees</strong>
+            </div>
+            <input type="range" id="aiTeamSizeInput" min="1" max="10" value="6" oninput="updateROICalculator()" />
+          </div>
+        </div>
+
+        <div class="roi-results-card">
+          <div class="roi-highlight-box">
+            <span class="roi-eyebrow">PROJECTED ANNUAL REVENUE RECOVERED</span>
+            <div class="roi-big-number" id="roiAnnualRevenue">$222,768</div>
+            <p>Captured automatically by your 24/7 AIPreneur Receptionist, Social Media Manager, Copywriter, Content Editor &amp; Sales avatars.</p>
+          </div>
+
+          <div class="roi-submetrics">
+            <div class="roi-sub-box">
+              <span>Monthly New Bookings</span>
+              <strong id="roiMonthlyBookings">20 deals/mo</strong>
+            </div>
+            <div class="roi-sub-box">
+              <span>Hours Saved per Month</span>
+              <strong id="roiHoursSaved">384 hrs/mo</strong>
+            </div>
+            <div class="roi-sub-box">
+              <span>Estimated Payroll Saved</span>
+              <strong id="roiPayrollSaved">$17,400/mo</strong>
+            </div>
+          </div>
+
+          <div class="roi-cta-footer">
+            <a href="#customer-portal" onclick="switchPortalAuthTab('register')" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">
+              Register Your Business Account on aipreneurglobal.com →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING INTERACTIVE LIVE AGENT CHATBOT WIDGET (BOTTOM-RIGHT) -->
+  <div class="floating-chatbot-wrapper">
+    <button class="floating-chatbot-launcher" id="chatbotLauncherBtn" onclick="toggleFloatingChatbot()">
+      <span class="launcher-pulse"></span>
+      <span>💬 Talk to Live AI Agent (10 Voices)</span>
+    </button>
+
+    <div class="floating-chatbot-window" id="floatingChatbotWindow" style="display:none;">
+      <div class="fchat-header">
+        <div class="fchat-agent-SelectRow">
+          <img id="fchatAgentAvatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Agent" />
+          <div>
+            <select id="fchatAgentSelector" onchange="handleChangeFloatingChatAgent()">
+              <!-- Populated dynamically -->
+            </select>
+            <span id="fchatVoiceLabel" class="fchat-voice-sub">🎙️ Unique Voice Active • Replies Aloud</span>
+          </div>
+        </div>
+        <button class="fchat-close-btn" onclick="toggleFloatingChatbot(false)">✕</button>
+      </div>
+
+      <div class="fchat-lead-bar">
+        <input type="text" id="fchatVisitorName" placeholder="Your Name" />
+        <input type="email" id="fchatVisitorEmail" placeholder="Your Email" />
+      </div>
+
+      <div class="fchat-messages" id="fchatMessagesList">
+        <!-- Populated dynamically -->
+      </div>
+
+      <div class="fchat-quick-prompts">
+        <button onclick="sendQuickFloatingPrompt('How can I hire Elena & Sophia for my business?')">Hire Elena &amp; Sophia</button>
+        <button onclick="sendQuickFloatingPrompt('Generate a 7-day social plan & pricing quote')">7-Day Plan &amp; Pricing</button>
+        <button onclick="sendQuickFloatingPrompt('I want to book a live demo call this week')">Book Live Demo</button>
+      </div>
+
+      <div class="fchat-input-row">
+        <input type="text" id="fchatInputBox" placeholder="Ask any question or inquire about services..." onkeydown="if(event.key==='Enter') sendFloatingChatbotMessage()" />
+        <button class="btn btn-sm btn-primary" onclick="sendFloatingChatbotMessage()">Send 🔊</button>
+      </div>
+      <div class="fchat-footer-note">
+        Ask any question—our AI agent will resolve your query &amp; our team will get back to you.
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-col">
+        <a href="https://aipreneurglobal.com/" target="_blank" rel="noopener" class="brand-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="10" fill="url(#brandGradFooter)"/>
+              <path d="M18 8L27 26H22.2L20.3 21.8H15.7L13.8 26H9L18 8ZM18 14.2L16.5 18.2H19.5L18 14.2Z" fill="white"/>
+              <circle cx="27" cy="10" r="3" fill="#34D399"/>
+              <defs>
+                <linearGradient id="brandGradFooter" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4F46E5"/>
+                  <stop offset="1" stop-color="#06B6D4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">AIPreneur</span>
+            <span class="brand-domain">aipreneurglobal.com</span>
+          </div>
+        </a>
+        <p class="footer-mission">
+          Demystifying AI in Plain English. Practical AI Education, Custom Intelligent Systems, and 24/7 Lifelike AI Employee Avatars built for measurable business value.
+        </p>
+        <p class="footer-statement-badge">
+          ✅ <strong>Official Portal Statement:</strong> Create and deploy lifelike AI employee avatars with 10 unique voices—Receptionist, Sales Assistant, Social Media Manager, Blogger, Copywriter, Content &amp; Video Editor, Data Analyst, Inside Sales &amp; Support Agent, Research Specialist, and Custom Role—to utilize as your own employees while forming and scaling your business.
+        </p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>10 Unique Voice AI Agents</h4>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('social_manager')">👩‍💼 Elena — Social Media (Female 1)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('receptionist')">👩‍💼 Sophia — Receptionist (Female 2)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('sales_assistant')">👨‍💼 Marcus — Sales Assistant (Male 1)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('blogger')">👩‍💻 Liam — AI Blogger (Female 3)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('writer')">👩‍💻 Maya — Copywriter (Female 4)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('content_editor')">🎬 Claude — Content Editor (Male 2)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('data_analyst')">📊 Arjun — Data Analyst (Indian Male)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('inside_sales_support')">🤝 Jordan — Inside Sales (British Male)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('research_specialist')">🔍 Dr. Clara — Research (Female 5)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAgentVideoDemo('custom_role')">🛠️ Alex — Custom Agent (Young Male)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Customer &amp; Inquiry Portal</h4>
+        <ul>
+          <li><a href="#customer-portal" onclick="switchPortalAuthTab('register')">Customer Registration</a></li>
+          <li><a href="#customer-portal" onclick="switchPortalAuthTab('login')">Member Portal Login</a></li>
+          <li><a href="#customer-portal" onclick="switchPortalAuthTab('inquire')">Submit Service Inquiry</a></li>
+          <li><a href="javascript:void(0)" onclick="toggleFloatingChatbot(true)">Open Live AI Chatbot</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>AIPreneur Global</h4>
+        <ul>
+          <li><a href="https://aipreneurglobal.com/" target="_blank" rel="noopener">Official Website (aipreneurglobal.com)</a></li>
+          <li><a href="#avatar-creator">Download Employee ID Badge</a></li>
+          <li><a href="#roi-calculator">AI Workforce ROI Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 AIPreneur (<a href="https://aipreneurglobal.com/" target="_blank" rel="noopener">aipreneurglobal.com</a>). All rights reserved.</span>
+      <span>Enterprise Zero-Retention Privacy &bull; SOC2 &amp; GDPR Ready</span>
+    </div>
+  </footer>
+
+  <!-- SILENT BACKGROUND EMAIL RELAY (HIDDEN IFRAME + STANDARD FORM POST FOR 100% RELIABLE GMAIL ROUTING) -->
+  <iframe name="hiddenEmailRelayFrame" id="hiddenEmailRelayFrame" style="display:none;width:0;height:0;border:0;" aria-hidden="true"></iframe>
+  <form id="silentFormSubmitRelay" action="https://formsubmit.co/tothedataboy@gmail.com" method="POST" target="hiddenEmailRelayFrame" style="display:none;" aria-hidden="true">
+    <input type="hidden" name="_subject" id="relaySubjectInput" value="" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <div id="relayDynamicFieldsContainer"></div>
+  </form>
+
+  <script src="app.js"></script>
+</body>
+</html>
